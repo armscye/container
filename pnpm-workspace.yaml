@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - '@armscye/core@0.4.4'
