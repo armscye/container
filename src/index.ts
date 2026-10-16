@@ -43,8 +43,7 @@ export type Lifetime = 'singleton' | 'transient';
  * ```ts
  * import type { Factory } from '@armscye/container';
  *
- * const createUrl: Factory<URL> = (container) =>
- *   new URL(container.get<string>('baseUrl'));
+ * const createUrl: Factory<URL> = (c) => new URL(c.get<string>('baseUrl'));
  * ```
  */
 export type Factory<T = any> = (container: Container) => T;
@@ -116,7 +115,7 @@ export interface ClassProvider {
  *
  * const provider: FactoryProvider = {
  *   provide: 'url',
- *   useFactory: (container) => new URL(container.get<string>('baseUrl')),
+ *   useFactory: (c) => new URL(c.get<string>('baseUrl')),
  *   lifetime: 'transient',
  * };
  * ```
@@ -173,7 +172,7 @@ export interface ExistingProvider {
  *   { provide: 'logger', useClass: Logger, lifetime: 'singleton' },
  *   {
  *     provide: 'url',
- *     useFactory: (container) => new URL(container.get<string>('baseUrl')),
+ *     useFactory: (c) => new URL(c.get<string>('baseUrl')),
  *   },
  *   { provide: 'log', useExisting: 'logger' },
  * ];
@@ -189,10 +188,8 @@ export type Provider =
  * ```ts
  * import type { Container } from '@armscye/container';
  *
- * function getBaseUrl(container: Container): string | undefined {
- *   return container.has('baseUrl')
- *     ? container.get<string>('baseUrl')
- *     : undefined;
+ * function getBaseUrl(c: Container): string | undefined {
+ *   return c.has('baseUrl') ? c.get<string>('baseUrl') : undefined;
  * }
  * ```
  */
