@@ -71,16 +71,14 @@ const providers: Provider[] = [
   { provide: 'logger', useClass: Logger, lifetime: 'singleton' },
   {
     provide: 'url',
-    useFactory: (container) => new URL(container.get<string>('baseUrl')),
+    useFactory: (c) => new URL(c.get<string>('baseUrl')),
     lifetime: 'transient',
   },
   { provide: 'log', useExisting: 'logger' },
 ];
 
-function getBaseUrl(container: Container): string | undefined {
-  return container.has('baseUrl')
-    ? container.get<string>('baseUrl')
-    : undefined;
+function getBaseUrl(c: Container): string | undefined {
+  return c.has('baseUrl') ? c.get<string>('baseUrl') : undefined;
 }
 ```
 
