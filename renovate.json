@@ -29,6 +29,11 @@
       "rangeStrategy": "bump"
     },
     {
+      "description": "Our own packages don't need a stability period.",
+      "matchPackageNames": ["@armscye/**"],
+      "minimumReleaseAge": null
+    },
+    {
       "description": "Automerge minor and patch devDependency updates once CI passes.",
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
