@@ -208,8 +208,7 @@ export interface Container {
    * @param token - The token to resolve.
    * @returns The resolved value.
    * @throws {Error} When no provider is registered under `token`.
-   * @throws {Error} When a constructor, factory or dependency throws
-   * while the value is being created.
+   * @throws {Error} When a constructor, factory or dependency throws.
    */
   get<T>(token: ProviderToken): T;
 
