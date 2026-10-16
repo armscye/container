@@ -1,6 +1,6 @@
 {
   "name": "@armscye/container",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Common TypeScript types for dependency injection containers.",
   "keywords": [
     "armscye",
