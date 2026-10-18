@@ -36,6 +36,12 @@
     {
       "description": "Automerge minor and patch devDependency updates once CI passes.",
       "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch", "pin"],
+      "automerge": true
+    },
+    {
+      "description": "Automerge non-major GitHub Actions updates, including digest pins, once CI passes.",
+      "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
@@ -57,6 +63,11 @@
       "allowedVersions": "<6.1.0"
     },
     {
+      "description": "Keep @types/node on the major of engines.node (22). Pinning the exact 22.12 typings is not possible: they fail to compile with TypeScript 6. Update together with engines.node.",
+      "matchPackageNames": ["@types/node"],
+      "allowedVersions": "<23"
+    },
+    {
       "description": "Do not bump the Node.js version used for development.",
       "matchManagers": ["nvm"],
       "enabled": false
@@ -76,6 +87,18 @@
     {
       "groupName": "release-it",
       "matchPackageNames": ["release-it", "@release-it/**"]
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update the renovate version the renovate:validate script runs.",
+      "managerFilePatterns": ["/^package\\.json$/"],
+      "matchStrings": [
+        "--package=(?<depName>renovate)@(?<currentValue>[^\\s\"]+)"
+      ],
+      "datasourceTemplate": "npm",
+      "depTypeTemplate": "devDependencies"
     }
   ]
 }

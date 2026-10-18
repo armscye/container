@@ -92,8 +92,9 @@ or a dependency throws. Use `container.has` to check for a token first.
 
 Develop on the Node.js version in `.nvmrc` (`nvm use`, currently 24) and
 pnpm via Corepack or a global install matching `packageManager` in
-`package.json`. CI runs every check on Node.js 22.12, the oldest version
-the package supports, and on 24 and 26.
+`package.json`. CI type-checks, tests and builds on Node.js 22.12, the
+oldest version the package supports, and on 24 and 26. Lint and
+formatting run once, on the `.nvmrc` version.
 
 ```sh
 pnpm install     # also installs the Git hooks
@@ -117,7 +118,7 @@ pnpm format      # Prettier
 | `check:package`     | Builds, then runs publint and attw          |
 | `release`           | Cuts a release with release-it              |
 | `prepack`           | Builds before `npm pack` or `npm publish`   |
-| `renovate:validate` | Validates `renovate.json` (Node.js 24+)     |
+| `renovate:validate` | Validates `renovate.json` (Node.js 24.11+)  |
 | `prepare`           | Installs the Husky Git hooks                |
 
 Every exported declaration needs JSDoc with a description; exported
