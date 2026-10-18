@@ -4,8 +4,6 @@
 
 ## Install
 
-Requires Node.js 22.12 or later.
-
 ```sh
 npm install --save-dev @armscye/container
 # or
@@ -15,6 +13,8 @@ pnpm add -D @armscye/container
 ```
 
 Import with `import type { … }` so the import is erased from your build.
+
+Requires Node.js 22.12 or later.
 
 The package is ESM only. In a CommonJS file compiled with
 `"module": "node16"`, add the `resolution-mode` attribute; with
