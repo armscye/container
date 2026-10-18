@@ -4,6 +4,8 @@
 
 ## Install
 
+Requires Node.js 22.12 or later.
+
 ```sh
 npm install --save-dev @armscye/container
 # or
@@ -13,8 +15,6 @@ pnpm add -D @armscye/container
 ```
 
 Import with `import type { … }` so the import is erased from your build.
-
-Requires Node.js 22.12 or later.
 
 The package is ESM only. In a CommonJS file compiled with
 `"module": "node16"`, add the `resolution-mode` attribute; with
@@ -87,19 +87,6 @@ function getBaseUrl(c: Container): string | undefined {
 `container.get` throws when no provider is registered under the token, or
 when resolving the value fails, for example because a constructor, a factory
 or a dependency throws. Use `container.has` to check for a token first.
-
-## Migrating from 0.7
-
-0.8 is a rewrite in this repository, with these breaking changes:
-
-- The deprecated `shared` flag is removed from `ClassProvider`,
-  `FactoryProvider` and `ExistingProvider`. Use `lifetime: 'singleton'` for
-  `shared: true` and `lifetime: 'transient'` for `shared: false`.
-- `ExistingProvider` no longer has `lifetime`. An alias always returns
-  whatever its target token resolves to.
-- The package is ESM only. CommonJS projects need the `resolution-mode`
-  import shown in [Install](#install).
-- `@armscye/core` is `^0.4.4`, which is also ESM only.
 
 ## Contributing
 
