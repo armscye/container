@@ -118,7 +118,7 @@ pnpm format      # Prettier
 | `check:package`     | Builds, then runs publint and attw          |
 | `release`           | Cuts a release with release-it              |
 | `prepack`           | Builds before `npm pack` or `npm publish`   |
-| `renovate:validate` | Validates `renovate.json` (Node.js 24+)     |
+| `renovate:validate` | Validates `renovate.json` (Node.js 24.11+)  |
 | `prepare`           | Installs the Husky Git hooks                |
 
 Every exported declaration needs JSDoc with a description; exported
