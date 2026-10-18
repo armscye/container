@@ -88,19 +88,6 @@ function getBaseUrl(c: Container): string | undefined {
 when resolving the value fails, for example because a constructor, a factory
 or a dependency throws. Use `container.has` to check for a token first.
 
-## Migrating from 0.7
-
-0.8 is a rewrite in this repository, with these breaking changes:
-
-- The deprecated `shared` flag is removed from `ClassProvider`,
-  `FactoryProvider` and `ExistingProvider`. Use `lifetime: 'singleton'` for
-  `shared: true` and `lifetime: 'transient'` for `shared: false`.
-- `ExistingProvider` no longer has `lifetime`. An alias always returns
-  whatever its target token resolves to.
-- The package is ESM only. CommonJS projects need the `resolution-mode`
-  import shown in [Install](#install).
-- `@armscye/core` is `^0.4.4`, which is also ESM only.
-
 ## Contributing
 
 Develop on the Node.js version in `.nvmrc` (`nvm use`, currently 24) and
