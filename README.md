@@ -14,6 +14,8 @@ pnpm add -D @armscye/container
 
 Import with `import type { … }` so the import is erased from your build.
 
+Requires Node.js 22.12 or later.
+
 The package is ESM only. In a CommonJS file compiled with
 `"module": "node16"`, add the `resolution-mode` attribute; with
 `"module": "nodenext"` (TypeScript 5.8+) the plain form works.
@@ -103,8 +105,8 @@ or a dependency throws. Use `container.has` to check for a token first.
 
 Develop on the Node.js version in `.nvmrc` (`nvm use`, currently 24) and
 pnpm via Corepack or a global install matching `packageManager` in
-`package.json`. CI also runs every check on Node.js 20.19, the oldest
-version the package supports.
+`package.json`. CI runs every check on Node.js 22.12, the oldest version
+the package supports, and on 24 and 26.
 
 ```sh
 pnpm install     # also installs the Git hooks
